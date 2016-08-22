@@ -16,3 +16,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Product(models.Model):
+    image_file = models.ImageField()
+    filtered_image_file = models.ImageField()
+    description = models.TextField(max_length=500)
+    created_at = models.DateTimeField(auto_now_add=True)
