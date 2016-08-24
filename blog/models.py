@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
@@ -18,7 +17,8 @@ class Post(models.Model):
         return self.title
 
 class Product(models.Model):
+    product_number = models.IntegerField(primary_key=True)
+    title = models.CharField(max_length=200)
     image_file = models.ImageField()
-    filtered_image_file = models.ImageField()
     description = models.TextField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)

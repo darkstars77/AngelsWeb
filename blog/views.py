@@ -4,7 +4,6 @@ from django.utils import timezone
 
 # Create your views here.
 def main_page(request):
-    #posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'WebView/index.html', {})
 
 def single_product(request, product_id):
