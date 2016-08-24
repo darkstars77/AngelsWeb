@@ -1,5 +1,4 @@
 from django.conf.urls import url
-from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
@@ -10,7 +9,11 @@ urlpatterns = [
     url(r'^DoWriteBoard/$', views.DoWriteBoard),
     url(r'^product/(?P<product_id>\d+)$', views.single_product, name='view_single_product'),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )
+
 
 
 '''prefix 설정 예시

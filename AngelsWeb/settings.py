@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -119,7 +119,7 @@ USE_L10N = True
 USE_TZ = True
 
 MEDIA_URL = '/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/static/product_photo')
+MEDIA_ROOT = os.path.join(BASE_DIR, '/blog/static/product_photo')
 
 AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY = AWS_SECRET_ACCESS_KEY
