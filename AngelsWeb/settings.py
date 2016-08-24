@@ -118,7 +118,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-MEDIA_URL = '/'
+MEDIA_URL = '/blog/static/product_photo/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '/blog/static/product_photo')
 
 AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
