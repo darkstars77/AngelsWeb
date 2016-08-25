@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^show_write_form/$', views.show_write_form),
     url(r'^DoWriteBoard/$', views.DoWriteBoard),
     url(r'^product/(?P<product_id>\d+)$', views.single_product, name='view_single_product'),
+    url(r'^search_product/$', views.search_product),
 ]
 if settings.DEBUG:
     urlpatterns += static(
