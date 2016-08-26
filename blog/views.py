@@ -63,16 +63,3 @@ def search_product(request):
 #기능 테스트용 함수들
 def show_write_form(request):
     return render_to_response('WebView/writeBoard.html')
-
-def DoWriteBoard(request):
-    post = Post(title=request.POST['subject'],
-                author=request.POST['name'],
-                text=request.POST['memo'],
-                created_date=timezone.now(),
-                hits=0
-                )
-    post.save()
-
-    # 저장을 했으니, 다시 조회해서 보여준다.
-    url = '/listSpecificPageWork?current_page=1'
-    return HttpResponseRedirect(url)
