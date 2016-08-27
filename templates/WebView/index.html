@@ -77,45 +77,45 @@
                     <h1 class="brand-heading">AngelsWeb</h1>
                     <p align=right>
                     <form action='/search_product/' method='get'>
-                        <label for='product_number'>검색어</label>
+                        <label for='product_number'>Product Number</label>
                         <input type='text' name='product_number' style='font-size:12pt; color:#333333; font-weight:bold;'/>
-                        <input type="submit" value="검색" style='font-size:12pt; color:#333333; font-weight:bold;' />
+                        <input type="submit" value="Search" style='font-size:12pt; color:#333333; font-weight:bold;' />
                     </form>
                     </p>
 
                     <p>
                     <form action='/search_product/' method='get'>
-                        <select name="product_number">
+                        <select name="product_number" style="width:140px">
                             <option value="" style='font-size:12pt; color:#333333; font-weight:bold;' selected="selected">Pants</option>
                             {% for pant in pants %}
                                 <option value="{{ pant.pk }}" style='font-size:12pt; color:#333333; font-weight:bold;'>{{ pant.pk }}</option>
                             {% endfor %}
                         </select>
-                        <input type="submit" value="Pants Search" style='font-size:12pt; color:#333333; font-weight:bold;' />
+                        <input type="submit" value="Pants Search" style='font-size:12pt; color:#333333; font-weight:bold; width:140px;' />
                     </form>
                     </p>
 
                     <p>
                     <form action='/search_product/' method='get'>
-                        <select name="product_number">
+                        <select name="product_number" style="width:140px">
                             <option value="" style='font-size:12pt; color:#333333; font-weight:bold;' selected="selected">Skirts</option>
                             {% for skirt in skirts %}
                                 <option value="{{ skirt.pk }}" style='font-size:12pt; color:#333333; font-weight:bold;'>{{ skirt.pk }}</option>
                             {% endfor %}
                         </select>
-                        <input type="submit" value="Skirts Search" style='font-size:12pt; color:#333333; font-weight:bold;' />
+                        <input type="submit" value="Skirts Search" style='font-size:12pt; color:#333333; font-weight:bold; width:140px;' />
                     </form>
                     </p>
 
                     <p>
                     <form action='/search_product/' method='get'>
-                        <select name="product_number">
+                        <select name="product_number" style="width:140px">
                             <option value="" style='font-size:12pt; color:#333333; font-weight:bold;' selected="selected">Tskirts</option>
                             {% for tshirt in tshirts %}
                                 <option value="{{ tshirt.pk }}" style='font-size:12pt; color:#333333; font-weight:bold;'>{{ tshirt.pk }}</option>
                             {% endfor %}
                         </select>
-                        <input type="submit" value="Tskirts Search" style='font-size:12pt; color:#333333; font-weight:bold;' />
+                        <input type="submit" value="Tskirts Search" style='font-size:12pt; color:#333333; font-weight:bold; width:140px;' />
                     </form>
                     </p>
 
