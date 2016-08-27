@@ -20,6 +20,13 @@ def search_product(request):
     if 'product_number' in request.GET:
         product_id = int(request.GET['product_number'])
         product = get_object_or_404(Product, pk=product_id)
+        return render(request, 'WebView/search_result.html', {'product': product})
+    else:
+        return HttpResponse('검색어를 입력하지 않으셨습니다.')
+'''
+    if 'product_number' in request.GET:
+        product_id = int(request.GET['product_number'])
+        product = get_object_or_404(Product, pk=product_id)
         response_text = '<p> 상품번호 : {product_id}번 상품이름 : {product_title}</p>'
         response_text += '<p><img src="{product_url}"/></p>'
         response_text += '<p>Price_Positive : {pricePos}</p>'
@@ -44,18 +51,6 @@ def search_product(request):
             extraNeg=product.extraNeg
             )
         )
-    else:
-        return HttpResponse('검색어를 입력하지 않으셨습니다.')
-'''
-    product = get_object_or_404(Product, pk=product_id)
-    response_text = '<p>{product_id}번...{product_id}번 상품을 보여 드릴게요.</p>'
-    response_text += '<p>{product_url}</p>'
-    response_text += '<p><img src="{product_url}"/></p>'
-    return HttpResponse(response_text.format(
-        product_id=product_id,
-        product_url=product.image_file.url
-        )
-    )
 '''
 
 
@@ -63,3 +58,6 @@ def search_product(request):
 #기능 테스트용 함수들
 def show_write_form(request):
     return render_to_response('WebView/writeBoard.html')
+
+def search_result(request):
+    return render(request, 'WebView/search_result.html', {})

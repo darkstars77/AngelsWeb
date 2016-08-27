@@ -121,6 +121,7 @@ USE_TZ = True
 MEDIA_URL = '/product_photo/'
 MEDIA_ROOT = os.path.join(BASE_DIR, './blog/static/product_photo')
 
+AWS_STORAGE_BUCKET_NAME = 'darkstars77storage'
 AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY = AWS_SECRET_ACCESS_KEY
 AWS_S3_SECURE_URLS = False

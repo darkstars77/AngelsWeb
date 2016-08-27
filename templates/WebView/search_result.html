@@ -1,0 +1,81 @@
+<html>
+{%  load static from staticfiles %}
+<head>
+	<title>Product analysis result</title>
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js'></script>
+	<script src="{% static 'app/js/Chart.min.js' %}"></script>
+</head>
+<body>
+    <div>
+        <p>Product Numnber: {{ product.pk}}</p>
+        <p>Product Title: {{ product.title }} </p>
+        <p><img src="{{product.image_file.url}}" width="450" height="300"/></p>
+    </div>
+	<div style="width: 60%">
+		<canvas id="canvas" width="450" height="300"></canvas>
+	</div>
+
+	<script type="text/javascript">
+		var barChart = null;
+		var barChartData = {
+			labels : ["Price","Delivery","Size","Extra"],
+			datasets : [
+				{
+					fillColor : "rgba(0,0,255,0.85)",
+					strokeColor : "rgba(0,0,255,0.75)",
+					highlightFill: "rgba(0,0,255,0.8)",
+					highlightStroke: "rgba(0,0,255,0.5)",
+					data : [{{ product.pricePos }},{{ product.deliveryPos }},{{ product.sizePos }},{{ product.extraPos }}]
+				},
+				{
+					fillColor : "rgba(255,0,0,0.85)",
+					strokeColor : "rgba(255,0,0,0.75)",
+					highlightFill : "rgba(255,0,0,0.8)",
+					highlightStroke : "rgba(255,0,0,0.5)",
+					data : [{{ product.priceNeg }},{{ product.deliveryNeg }},{{ product.sizeNeg }},{{ product.extraNeg }}]
+				}
+			]
+
+		};
+
+		$(function() {
+			var ctx = document.getElementById("canvas").getContext("2d");
+			barChart = new Chart(ctx).Bar(barChartData, {
+				//Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+				scaleBeginAtZero : false,
+				//Boolean - Whether grid lines are shown across the chart
+				scaleShowGridLines : true,
+				//String - Colour of the grid lines
+				scaleGridLineColor : "rgba(0,0,0,0.05)",
+				//Number - Width of the grid lines
+				scaleGridLineWidth : 1,
+				//Boolean - If there is a stroke on each bar
+				barShowStroke : false,
+				//Number - Pixel width of the bar stroke
+				barStrokeWidth : 2,
+				//Number - Spacing between each of the X value sets
+				barValueSpacing : 5,
+				//Number - Spacing between data sets within X values
+				barDatasetSpacing : 1,
+				onAnimationProgress: function() {
+					console.log("onAnimationProgress");
+				},
+				onAnimationComplete: function() {
+					console.log("onAnimationComplete");
+				}
+			});
+		});
+
+
+		$("canvas").on("click", function(e) {
+			var activeBars = barChart.getBarsAtEvent(e);
+			console.log(activeBars);
+
+			for(var i in activeBars) {
+				console.log(activeBars[i].value);
+			}
+		});
+
+	</script>
+</body>
+</html>
