@@ -4,7 +4,10 @@ from django.utils import timezone
 
 # Create your views here.
 def main_page(request):
-    return render(request, 'WebView/index.html', {})
+    pants = Product.objects.filter(title="바지")
+    skirts = Product.objects.filter(title="스커트")
+    tshirts = Product.objects.filter(title="티셔츠")
+    return render(request, 'WebView/index.html', {'pants': pants, 'tshirts': tshirts, 'skirts': skirts})
 
 def single_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
