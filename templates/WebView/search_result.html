@@ -19,30 +19,11 @@
             <td width="500">
                 <table>
                     <tr>
-                        <td width="300" align="right">
-                            <form>
-                                <select size = "1" style="width:150px" >
-                                    <option label="select" value="productNum"> START </option>
-                                    <optgroup label="Pants">
-                                        <option label="123456"> 1 </option>
-                                        <option label="1234567"> 2 </option>
-                                    </optgroup>
-                                    <optgroup label="Skirts">
-                                        <option label="123456"> 1 </option>
-                                        <option label="1234567"> 2 </option>
-                                    </optgroup>
-                                    <optgroup label="TShirts">
-                                        <option label="123456"> 1 </option>
-                                        <option label="1234567"> 2 </option>
-                                    </optgroup>
-                                </select></form>
-                        </td>
-                        <td width="200" align="left">
-                            <input type="button" value="Search">
-                        </td></tr>
-                    <tr><td colspan="2" width="500">
-                        <p><img src="{{product.image_file.url}}" width="480" height="320"/></p></td>
-                    </tr>
+                        <td width="500">
+                            <p><img src="{{product.image_file.url}}" width="480" height="320"/></p></td></tr>
+                    <tr>
+                        <td width="500" align="left">
+                            <a href="{{ product.description }}"><img src="{% static 'app/img/lookproductbanner.png' %}" width="200" height="40" border="0" /> </a></td></tr>
                 </table>
             </td>
             <td width="450">
@@ -51,7 +32,7 @@
                     <tr>
                         <td width="280">
                             <p> product number: {{ product.pk }}</p>
-                            <p> Product Title: {{ product.description }}</p></td>
+                            <p> Product Category: {{ product.title }}</p></td>
                         <td width="170">
                             <p><img src="{% static 'app/img/barexplain.png' %}" width="130" height="70"/></p></td>
                     </tr>
@@ -75,7 +56,6 @@
 
     </table>
     <script type="text/javascript">
-        var barChart = null;
         var barChartData = {
             labels : ["Price","Delivery","Size","Extra"],
             datasets : [
@@ -155,8 +135,8 @@
 
 
         var chart = null;
-		var canvas = null;
-		var ctx = null;
+        var canvas = null;
+        var ctx = null;
 
 
         $(document).ready(function() {
