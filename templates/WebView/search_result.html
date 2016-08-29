@@ -82,14 +82,14 @@
                 {
                     fillColor : "rgba(0,0,255,0.85)",
                     strokeColor : "rgba(0,0,255,0.75)",
-                    highlightFill: "rgba(0,0,255,0.8)",
+                    highlightFill: "rgba(0,0,255,0.5)",
                     highlightStroke: "rgba(0,0,255,0.5)",
                     data : [{{ product.pricePos }},{{ product.deliveryPos }},{{ product.sizePos }},{{ product.extraPos }}]
                 },
                 {
                     fillColor : "rgba(255,0,0,0.85)",
                     strokeColor : "rgba(255,0,0,0.75)",
-                    highlightFill : "rgba(255,0,0,0.8)",
+                    highlightFill : "rgba(255,0,0,0.5)",
                     highlightStroke : "rgba(255,0,0,0.5)",
                     data : [{{ product.priceNeg }},{{ product.deliveryNeg }},{{ product.sizeNeg }},{{ product.extraNeg }}]
                 }
@@ -100,81 +100,94 @@
         var pricePieChartData = [
             {
                 value: {{ product.pricePos}},
-                color: "cornflowerblue",
-                highlight: "lightskyblue",
+                color: "rgba(0,0,255,0.85)",
+                highlight: "rgba(0,0,255,0.5)",
                 label: "Positive Count"
             },
             {
-                value: {{ product.priceNeg}},
-                color: "lightgreen",
-                highlight: "yellowgreen",
-                label: "Lightgreen"
+                value: {{ product.priceNeg }},
+                color: "rgba(255,0,0,0.85)",
+                highlight: "rgba(255,0,0,0.5)",
+                label: "Negative Count"
             }];
 
         var deliveryPieChartData = [
             {
-                value: {{ product.deliveryPos}},
-                color: "cornflowerblue",
-                highlight: "lightskyblue",
-                label: "Corn Flower Blue"
+                value: {{ product.deliveryPos }},
+                color: "rgba(0,0,255,0.85)",
+                highlight: "rgba(0,0,255,0.5)",
+                label: "Positive Count"
             },
             {
-                value: {{ product.deliveryNeg}},
-                color: "lightgreen",
-                highlight: "yellowgreen",
-                label: "Lightgreen"
+                value: {{ product.deliveryNeg }},
+                color: "rgba(255,0,0,0.85)",
+                highlight: "rgba(255,0,0,0.5)",
+                label: "Negative Count"
             }];
 
         var sizePieChartData = [
             {
-                value: {{ product.sizePos}},
-                color: "cornflowerblue",
-                highlight: "lightskyblue",
-                label: "Corn Flower Blue"
+                value: {{ product.sizePos }},
+                color: "rgba(0,0,255,0.85)",
+                highlight: "rgba(0,0,255,0.5)",
+                label: "Positive Count"
             },
             {
-                value: {{ product.sizeNeg}},
-                color: "lightgreen",
-                highlight: "yellowgreen",
-                label: "Lightgreen"
+                value: {{ product.sizeNeg }},
+                color: "rgba(255,0,0,0.85)",
+                highlight: "rgba(255,0,0,0.5)",
+                label: "Negative Count"
             }];
 
         var extraPieChartData = [
             {
-                value: {{ product.extraPos}},
-                color: "cornflowerblue",
-                highlight: "lightskyblue",
-                label: "Corn Flower Blue"
+                value: {{ product.extraPos }},
+                color: "rgba(0,0,255,0.85)",
+                highlight: "rgba(0,0,255,0.5)",
+                label: "Positive Count"
             },
             {
-                value: {{ product.extraNeg}},
-                color: "lightgreen",
-                highlight: "yellowgreen",
-                label: "Lightgreen"
+                value: {{ product.extraNeg }},
+                color: "rgba(255,0,0,0.85)",
+                highlight: "rgba(255,0,0,0.5)",
+                label: "Negative Count"
             }];
 
-        var canvas = document.getElementById('canvas');
-        var ctx = canvas.getContext('2d');
+
+        var chart = null;
+		var canvas = null;
+		var ctx = null;
+
 
         $(document).ready(function() {
-            barChart = new Chart(ctx).Bar(barChartData);
-            delete barChart();
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            chart = new Chart(ctx).Bar(barChartData);
         });
 
         function showGraph(id)
         {
-            if(id == "barGraph")
-                var barChart = new Chart(ctx).Bar(barChartData);
-            else if(id == "priceGraph")
-                var pieChart = new Chart(ctx).Pie(pricePieChartData);
-            else if(id == "deliveryGraph")
-                var pieChart = new Chart(ctx).Pie(deliveryPieChartData);
-            else if(id == "sizeGraph")
-                var pieChart = new Chart(ctx).Pie(sizePieChartData);
-            else if(id == "extraGraph")
-                var pieChart = new Chart(ctx).Pie(extraPieChartData);
+            if(id == "barGraph") {
+                chart.destroy();
+                chart = new Chart(ctx).Bar(barChartData);
+            }
+            else if(id == "priceGraph"){
+                chart.destroy();
+                chart = new Chart(ctx).Pie(pricePieChartData);
+            }
+            else if(id == "deliveryGraph"){
+                chart.destroy();
+                chart = new Chart(ctx).Pie(deliveryPieChartData);
+            }
+            else if(id == "sizeGraph"){
+                chart.destroy();
+                chart = new Chart(ctx).Pie(sizePieChartData);
+            }
+            else if(id == "extraGraph") {
+                chart.destroy();
+                chart = new Chart(ctx).Pie(extraPieChartData);
+            }
         }
-
     </script>
 </div>
 </body>
