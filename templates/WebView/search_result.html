@@ -31,19 +31,21 @@
 
                     <tr>
                         <td width="280">
-                            <p> product number: {{ product.pk }}</p>
-                            <p> Product Category: {{ product.title }}</p></td>
+                            <p><span style="font-style: italic; font-weight: bold; font-size: 1.2em;"> Product Number : {{ product.pk }}</span></p>
+                            <p><span style="font-style: italic; font-weight: bold; font-size: 1.2em;"> Product Category : {{ product.title }}</span></p>
+                        </td>
                         <td width="170">
-                            <p><img src="{% static 'app/img/barexplain.png' %}" width="130" height="70"/></p></td>
+                            <p><img src="{% static 'app/img/barexplain.png' %}" width="130" height="70"/></p>
+                        </td>
                     </tr>
 
                     <tr>
                         <td colspan="2" width="450" align="center">
-                            <input type="radio" id="barGraph" name="graph" checked="checked" onclick="showGraph('barGraph')"> All
-                            <input type="radio" id="priceGraph" name="graph" onclick="showGraph('priceGraph')" > Price
-                            <input type="radio" id="deliveryGraph" name="graph" onclick="showGraph('deliveryGraph');"> Delivery
-                            <input type="radio" id="sizeGraph" name="graph" onclick="showGraph('sizeGraph')"> Size
-                            <input type="radio" id="extraGraph" name="graph" onclick="showGraph('extraGraph')"> Extra
+                            <input type="radio" id="barGraph" name="graph" checked="checked" onclick="showGraph('barGraph')"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> All </span>
+                            <input type="radio" id="priceGraph" name="graph" onclick="showGraph('priceGraph')" ><span style="font-style: italic; font-weight: bold; font-size: 1em;"> Price </span>
+                            <input type="radio" id="deliveryGraph" name="graph" onclick="showGraph('deliveryGraph');"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> Delivery </span>
+                            <input type="radio" id="sizeGraph" name="graph" onclick="showGraph('sizeGraph')"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> Size </span>
+                            <input type="radio" id="extraGraph" name="graph" onclick="showGraph('extraGraph')"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> Extra </span>
                         </td>
                     </tr>
 
