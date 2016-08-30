@@ -20,38 +20,38 @@
                 <table>
                     <tr>
                         <td width="500">
-                            <p><img src="{{product.image_file.url}}" width="480" height="320"/></p></td></tr>
+                            <a href="{{ product.description }}" target="_blank"><img src="{{product.image_file.url}}" width="480" height="320"/></a></td></tr>
                     <tr>
                         <td width="500" align="left">
-                            <a href="{{ product.description }}"><img src="{% static 'app/img/lookproductbanner.png' %}" width="200" height="40" border="0" /> </a></td></tr>
+                            <a href="{{ product.review }}" target="_blank"><img src="{% static 'app/img/lookproductbanner.png' %}" width="180" height="40" border="0" /> </a></td></tr>
                 </table>
             </td>
-            <td width="450">
+            <td width="500">
                 <table>
 
                     <tr>
-                        <td width="280">
-                            <p><span style="font-style: italic; font-weight: bold; font-size: 1.2em;"> Product Number : {{ product.pk }}</span></p>
-                            <p><span style="font-style: italic; font-weight: bold; font-size: 1.2em;"> Product Category : {{ product.title }}</span></p>
+                        <td width="300">
+                            <p><span style="font-style: normal; font-weight: bold; font-size: 1.2em;"> Product Number : {{ product.pk }}</span></p>
+                            <p><span style="font-style: normal; font-weight: bold; font-size: 1.2em;"> Product Category : {{ product.title }}</span></p>
                         </td>
-                        <td width="170">
-                            <p><img src="{% static 'app/img/barexplain.png' %}" width="130" height="70"/></p>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" width="450" align="center">
-                            <input type="radio" id="barGraph" name="graph" checked="checked" onclick="showGraph('barGraph')"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> All </span>
-                            <input type="radio" id="priceGraph" name="graph" onclick="showGraph('priceGraph')" ><span style="font-style: italic; font-weight: bold; font-size: 1em;"> Price </span>
-                            <input type="radio" id="deliveryGraph" name="graph" onclick="showGraph('deliveryGraph');"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> Delivery </span>
-                            <input type="radio" id="sizeGraph" name="graph" onclick="showGraph('sizeGraph')"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> Size </span>
-                            <input type="radio" id="extraGraph" name="graph" onclick="showGraph('extraGraph')"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> Extra </span>
-                            <input type="radio" id="extraGraph" name="graph" onclick="showGraph('11stGraph')"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> 11번가 분석(%) </span>
+                        <td width="200">
+                            <p><img src="{% static 'app/img/barexplain.png' %}" width="130" height="70" align="right"/></p>
                         </td>
                     </tr>
 
                     <tr>
-                        <td colspan="2" width="450"><canvas id="canvas" width="450" height="300"></canvas></td></tr>
+                        <td colspan="2" width="500" align="center">
+                            <input type="radio" id="barGraph" name="graph" checked="checked" onclick="showGraph('barGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> All </span>
+                            <input type="radio" id="priceGraph" name="graph" onclick="showGraph('priceGraph')" ><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Price </span>
+                            <input type="radio" id="deliveryGraph" name="graph" onclick="showGraph('deliveryGraph');"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Delivery </span>
+                            <input type="radio" id="sizeGraph" name="graph" onclick="showGraph('sizeGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Size </span>
+                            <input type="radio" id="extraGraph" name="graph" onclick="showGraph('extraGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Extra </span>
+                            <input type="radio" id="extraGraph" name="graph" onclick="showGraph('11stGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> 11st(%) </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" width="500"><canvas id="canvas" width="500" height="300"></canvas></td></tr>
 
                 </table>
             </td>
