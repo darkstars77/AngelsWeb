@@ -21,6 +21,7 @@ class Product(models.Model):
     title = models.CharField(max_length=200)
     image_file = models.ImageField()
     description = models.TextField(max_length=500)
+    Product_satisfaction_by11st = models.IntegerField(default=0)
     pricePos = models.IntegerField()
     priceNeg = models.IntegerField()
     deliveryPos = models.IntegerField()

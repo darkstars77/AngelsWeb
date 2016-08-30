@@ -46,6 +46,7 @@
                             <input type="radio" id="deliveryGraph" name="graph" onclick="showGraph('deliveryGraph');"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> Delivery </span>
                             <input type="radio" id="sizeGraph" name="graph" onclick="showGraph('sizeGraph')"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> Size </span>
                             <input type="radio" id="extraGraph" name="graph" onclick="showGraph('extraGraph')"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> Extra </span>
+                            <input type="radio" id="extraGraph" name="graph" onclick="showGraph('11stGraph')"><span style="font-style: italic; font-weight: bold; font-size: 1em;"> 11번가 분석(%) </span>
                         </td>
                     </tr>
 
@@ -135,6 +136,20 @@
                 label: "Negative Count"
             }];
 
+        var elevenStPieChartData = [
+            {
+                value: {{ product.Product_satisfaction_by11st }},
+                color: "rgba(0,0,255,0.85)",
+                highlight: "rgba(0,0,255,0.5)",
+                label: "Positive Count"
+            },
+            {
+                value: 100 - {{ product.Product_satisfaction_by11st }},
+                color: "rgba(255,0,0,0.85)",
+                highlight: "rgba(255,0,0,0.5)",
+                label: "Negative Count"
+            }];
+
 
         var chart = null;
         var canvas = null;
@@ -168,6 +183,10 @@
             else if(id == "extraGraph") {
                 chart.destroy();
                 chart = new Chart(ctx).Pie(extraPieChartData);
+            }
+            else if(id == "11stGraph") {
+                chart.destroy();
+                chart = new Chart(ctx).Pie(elevenStPieChartData);
             }
         }
     </script>
