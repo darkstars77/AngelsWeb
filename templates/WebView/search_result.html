@@ -20,22 +20,22 @@
                 <table>
                     <tr>
                         <td width="500">
-                            <a href="{{ product.description }}" target="_blank"><img src="{{product.image_file.url}}" width="480" height="320"/></a></td></tr>
+                            <a href="{{ product.description }}" target="_blank"><img src="{{product.image_file.url}}" width="480" height="340"/></a></td></tr>
                     <tr>
                         <td width="500" align="left">
                             <a href="{{ product.review }}" target="_blank"><img src="{% static 'app/img/lookproductbanner.png' %}" width="180" height="40" border="0" /> </a></td></tr>
                 </table>
             </td>
-            <td width="500">
+            <td width="500" >
                 <table>
 
                     <tr>
-                        <td width="300">
-                            <p><span style="font-style: normal; font-weight: bold; font-size: 1.2em;"> Product Number : {{ product.pk }}</span></p>
-                            <p><span style="font-style: normal; font-weight: bold; font-size: 1.2em;"> Product Category : {{ product.title }}</span></p>
+                        <td width="370" height="70">
+                            <p><span style="font-style: normal; font-weight: bold; font-size: 1.1em;"> Product Number : {{ product.pk }}</span></p>
+                            <p><span style="font-style: normal; font-weight: bold; font-size: 1.1em;"> Product Category : {{ product.title }}</span></p>
                         </td>
-                        <td width="200">
-                            <p><img src="{% static 'app/img/barexplain.png' %}" width="130" height="70" align="right"/></p>
+                        <td width="130">
+                            <p><img src="{% static 'app/img/barexplain.png' %}" width="130" height="70" /></p>
                         </td>
                     </tr>
 
