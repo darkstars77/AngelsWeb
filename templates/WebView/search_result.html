@@ -51,8 +51,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="2" width="500"><canvas id="canvas" width="500" height="300"></canvas></td></tr>
-
+                        <td colspan="3" width="500"><canvas id="canvas" width="500" height="300"></canvas></td></tr>
                 </table>
             </td>
         </tr>
@@ -166,26 +165,38 @@
         {
             if(id == "barGraph") {
                 chart.destroy();
+                canvas = document.getElementById('canvas');
+                ctx = canvas.getContext('2d');
                 chart = new Chart(ctx).Bar(barChartData);
             }
             else if(id == "priceGraph"){
                 chart.destroy();
+                canvas = document.getElementById('canvas');
+                ctx = canvas.getContext('2d');
                 chart = new Chart(ctx).Pie(pricePieChartData);
             }
             else if(id == "deliveryGraph"){
                 chart.destroy();
+                canvas = document.getElementById('canvas');
+                ctx = canvas.getContext('2d');
                 chart = new Chart(ctx).Pie(deliveryPieChartData);
             }
             else if(id == "sizeGraph"){
                 chart.destroy();
+                canvas = document.getElementById('canvas');
+                ctx = canvas.getContext('2d');
                 chart = new Chart(ctx).Pie(sizePieChartData);
             }
             else if(id == "extraGraph") {
                 chart.destroy();
+                canvas = document.getElementById('canvas');
+                ctx = canvas.getContext('2d');
                 chart = new Chart(ctx).Pie(extraPieChartData);
             }
             else if(id == "11stGraph") {
                 chart.destroy();
+                canvas = document.getElementById('canvas');
+                ctx = canvas.getContext('2d');
                 chart = new Chart(ctx).Pie(elevenStPieChartData);
             }
         }
