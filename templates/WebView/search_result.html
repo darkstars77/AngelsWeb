@@ -4,20 +4,21 @@
     <title>Product analysis result</title>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js'></script>
     <script src="{% static 'app/js/Chart.min.js' %}"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1 "/>
 </head>
 <body background="{% static 'app/img/background.jpg' %}" style="background-size:100% 100%;" >
 
 <div align="center">
-    <table>
+    <table >
 
-        <tr>
+        <tr height="200">
             <td colspan="2" align="center">
                 <a href="http://52.78.128.31/"><img src="{% static 'app/img/angelsweb_image.png' %}" width="550" height="180" border="0" /> </a></td>
         </tr>
 
         <tr>
-            <td width="500">
-                <table>
+            <td width="500" height="400" >
+                <table >
                     <tr>
                         <td width="500">
                             <a href="{{ product.description }}" target="_blank"><img src="{{product.image_file.url}}" width="480" height="340"/></a></td></tr>
@@ -26,21 +27,20 @@
                             <a href="{{ product.review }}" target="_blank"><img src="{% static 'app/img/lookproductbanner.png' %}" width="180" height="40" border="0" /> </a></td></tr>
                 </table>
             </td>
-            <td width="500" >
-                <table>
-
+            <td width="500" height="400">
+                <table >
                     <tr>
                         <td width="370" height="70">
                             <p><span style="font-style: normal; font-weight: bold; font-size: 1.1em;"> Product Number : {{ product.pk }}</span></p>
                             <p><span style="font-style: normal; font-weight: bold; font-size: 1.1em;"> Product Category : {{ product.title }}</span></p>
                         </td>
-                        <td width="130">
+                        <td width="130" height="70">
                             <p><img src="{% static 'app/img/barexplain.png' %}" width="130" height="70" /></p>
                         </td>
                     </tr>
 
                     <tr>
-                        <td colspan="2" width="500" align="center">
+                        <td colspan="2" width="500" height="30" align="center">
                             <input type="radio" id="barGraph" name="graph" checked="checked" onclick="showGraph('barGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> All </span>
                             <input type="radio" id="priceGraph" name="graph" onclick="showGraph('priceGraph')" ><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Price </span>
                             <input type="radio" id="deliveryGraph" name="graph" onclick="showGraph('deliveryGraph');"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Delivery </span>
@@ -51,13 +51,16 @@
                     </tr>
 
                     <tr>
-                        <td colspan="3" width="500"><canvas id="canvas" width="500" height="300"></canvas></td></tr>
+                        <td width="500" height="300" colspan="2"><canvas id="canvas" width="500" height="300"></canvas></td>
+                    </tr>
                 </table>
             </td>
         </tr>
 
     </table>
-    <script type="text/javascript">
+</div>
+</body>
+<script type="text/javascript">
         var barChartData = {
             labels : ["Price","Delivery","Size","Extra"],
             datasets : [
@@ -201,6 +204,4 @@
             }
         }
     </script>
-</div>
-</body>
 </html>
