@@ -12,20 +12,3 @@ if settings.DEBUG:
     urlpatterns += static(
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
     )
-
-
-
-'''prefix 설정 예시
-urlpatterns = patterns('photo.views',
-    url(r'^photo/$', 'single_photo'),
-    url(r'^photo/2$', 'single_photo2'),
-    url(r'^photo/3$', 'single_photo3'),
-    url(r'^photo/4$', 'single_photo4'),
-
-urlpatterns += patterns('image.views',
-    url(r'^photo/5$', 'single_photo5'),
-    url(r'^photo/6$', 'single_photo6'),
-    url(r'^photo/7$', 'single_photo7'),
-    url(r'^photo/8$', 'single_photo8'),
-)
-'''
