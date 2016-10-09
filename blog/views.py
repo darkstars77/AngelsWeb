@@ -50,7 +50,7 @@ def search_keyword_product(request):
             return render(request, 'WebView/product_list.html', {'products': ordered})
 
         if word == "바지Extra":
-            products = Product.objects.filter(title="스커트")
+            products = Product.objects.filter(title="바지")
             ordered = products.order_by('-extraPos')
             return render(request, 'WebView/product_list.html', {'products': ordered})
 
@@ -70,7 +70,7 @@ def search_keyword_product(request):
             return render(request, 'WebView/product_list.html', {'products': ordered})
 
         if word == "스커트Extra":
-            products = Product.objects.filter(title="바지")
+            products = Product.objects.filter(title="스커트")
             ordered = products.order_by('-extraPos')
             return render(request, 'WebView/product_list.html', {'products': ordered})
 
