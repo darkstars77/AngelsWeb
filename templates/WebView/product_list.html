@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>1 Col Portfolio - Start Bootstrap Template</title>
+    <title>List for recommendation</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -38,12 +38,14 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Page Heading
-                    <small>Priority</small>
-                    <input type="radio" name="category" id="Size" checked="checked" onclick="showGraph('Size')"><span style="font-style: normal; font-size: 0.5em;"> Size </span>
-                    <input type="radio" name="category" id="Delivery" onclick="showGraph('Delivery')"><span style="font-style: normal; font-size: 0.5em;"> Delivery </span>
-                    <input type="radio" name="category" id="Price" onclick="showGraph('Price')"><span style="font-style: normal; font-size: 0.5em;"> Price </span>
-                    <input type="radio" name="category" id="Extra" onclick="showGraph('Extra')"><span style="font-style: normal; font-size: 0.5em;"> Extra </span>
+                <h1 class="page-header">List for Recommendation
+                    <div style="text-align: right">
+                        <small>Priority</small>
+                        <input type="radio" name="category" id="Size" onclick="showGraph('Size')"><span style="font-style: normal; font-size: 0.5em;"> Size </span>
+                        <input type="radio" name="category" id="Delivery" onclick="showGraph('Delivery')"><span style="font-style: normal; font-size: 0.5em;"> Delivery </span>
+                        <input type="radio" name="category" id="Price" onclick="showGraph('Price')"><span style="font-style: normal; font-size: 0.5em;"> Price </span>
+                        <input type="radio" name="category" id="Extra" onclick="showGraph('Extra')"><span style="font-style: normal; font-size: 0.5em;"> Extra </span>
+                    </div>
                 </h1>
 
             </div>
@@ -58,7 +60,7 @@
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>Project One</h3>
+                <h2>추천 1 순위</h2>
                 <h4>상품 번호 : {{ products.0.pk }}</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
                 <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.0.pk }}">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -76,7 +78,7 @@
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>Project Two</h3>
+                <h2>추천 2 순위</h2>
                 <h4>상품 번호 : {{ products.1.pk }}</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
                 <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.1.pk }}">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -94,7 +96,7 @@
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>Project Three</h3>
+                <h2>추천 3 순위</h2>
                 <h4>상품 번호 : {{ products.2.pk }}</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
                 <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.2.pk }}">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -113,7 +115,7 @@
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>Project Four</h3>
+                <h2>추천 4 순위</h2>
                 <h4>상품 번호 : {{ products.3.pk }}</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
                 <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.3.pk }}">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -131,7 +133,7 @@
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>Project Five</h3>
+                <h2>추천 5 순위</h2>
                 <h4>상품 번호 : {{ products.4.pk }}</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident ex quisquam hic odio repellendus atque porro distinctio quae id laboriosam facilis dolorum.</p>
                 <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.4.pk }}">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -151,7 +153,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>AngelsWeb</p>
                 </div>
             </div>
             <!-- /.row -->
