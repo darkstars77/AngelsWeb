@@ -2,206 +2,258 @@
 {%  load static from staticfiles %}
 <head>
     <title>Product analysis result</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js'></script>
     <script src="{% static 'app/js/Chart.min.js' %}"></script>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1 "/>
+
+    <style>
+        body {
+            padding-top: 70px;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+    </style>
+
 </head>
-<body background="{% static 'app/img/background.jpg' %}" style="background-size:100% 100%;" >
+<body>
 
-<div align="center">
-    <table >
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://52.78.128.31">Main Page</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="http://52.78.128.31/search_keyword_product/?product_keyWord=바지">바지 추천</a>
+                </li>
+                <li>
+                    <a href="http://52.78.128.31/search_keyword_product/?product_keyWord=스커트">스커트 추천</a>
+                </li>
+                <li>
+                    <a href="http://52.78.128.31/search_keyword_product/?product_keyWord=티셔츠">티셔츠 추천</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
-        <tr height="200">
-            <td colspan="2" align="center">
-                <a href="http://52.78.128.31/"><img src="{% static 'app/img/angelsweb_image.png' %}" width="550" height="180" border="0" /> </a></td>
-        </tr>
+<!-- Page Content -->
+<div class="container">
 
-        <tr>
-            <td width="500" height="400" >
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div align="center">
                 <table >
+
+                    <tr height="200">
+                        <td colspan="2" align="center">
+                            <img src="{% static 'app/img/Result_text.png' %}" width="550" height="100" border="0" /> </td>
+                    </tr>
+
                     <tr>
-                        <td width="500">
-                            <a href="{{ product.description }}" target="_blank"><img src="{{product.image_file.url}}" width="480" height="340"/></a></td></tr>
-                    <tr>
-                        <td width="500" align="left">
-                            <a href="{{ product.review }}" target="_blank"><img src="{% static 'app/img/lookproductbanner.png' %}" width="180" height="40" border="0" /> </a></td></tr>
+                        <td width="500" height="400" >
+                            <table >
+                                <tr>
+                                    <td width="500">
+                                        <a href="{{ product.description }}" target="_blank"><img src="{{product.image_file.url}}" width="480" height="340"/></a></td></tr>
+                                <tr>
+                                    <td width="500" align="left">
+                                        <a href="{{ product.review }}" target="_blank"><img src="{% static 'app/img/lookproductbanner.png' %}" width="180" height="40" border="0" /> </a></td></tr>
+                            </table>
+                        </td>
+                        <td width="500" height="400">
+                            <table>
+                                <tr>
+                                    <td width="370" height="70">
+                                        <p><span style="font-style: normal; font-weight: bold; font-size: 1.1em;"> Product Number : {{ product.pk }}</span></p>
+                                        <p><span style="font-style: normal; font-weight: bold; font-size: 1.1em;"> Product Category : {{ product.title }}</span></p>
+                                    </td>
+                                    <td width="130" height="70">
+                                        <p><img src="{% static 'app/img/textgo.png' %}" width="130" height="70" /></p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" width="500" height="30" align="center">
+                                        <input type="radio" id="barGraph" name="graph" checked="checked" onclick="showGraph('barGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> All </span>
+                                        <input type="radio" id="priceGraph" name="graph" onclick="showGraph('priceGraph')" ><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Price </span>
+                                        <input type="radio" id="deliveryGraph" name="graph" onclick="showGraph('deliveryGraph');"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Delivery </span>
+                                        <input type="radio" id="sizeGraph" name="graph" onclick="showGraph('sizeGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Size </span>
+                                        <input type="radio" id="extraGraph" name="graph" onclick="showGraph('extraGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Extra </span>
+                                        <input type="radio" id="extraGraph" name="graph" onclick="showGraph('11stGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> 11st(%) </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td width="500" height="300" colspan="2"><canvas id="canvas" width="500" height="300"></canvas></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
                 </table>
-            </td>
-            <td width="500" height="400">
-                <table >
-                    <tr>
-                        <td width="370" height="70">
-                            <p><span style="font-style: normal; font-weight: bold; font-size: 1.1em;"> Product Number : {{ product.pk }}</span></p>
-                            <p><span style="font-style: normal; font-weight: bold; font-size: 1.1em;"> Product Category : {{ product.title }}</span></p>
-                        </td>
-                        <td width="130" height="70">
-                            <p><img src="{% static 'app/img/barexplain.png' %}" width="130" height="70" /></p>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" width="500" height="30" align="center">
-                            <input type="radio" id="barGraph" name="graph" checked="checked" onclick="showGraph('barGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> All </span>
-                            <input type="radio" id="priceGraph" name="graph" onclick="showGraph('priceGraph')" ><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Price </span>
-                            <input type="radio" id="deliveryGraph" name="graph" onclick="showGraph('deliveryGraph');"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Delivery </span>
-                            <input type="radio" id="sizeGraph" name="graph" onclick="showGraph('sizeGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Size </span>
-                            <input type="radio" id="extraGraph" name="graph" onclick="showGraph('extraGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> Extra </span>
-                            <input type="radio" id="extraGraph" name="graph" onclick="showGraph('11stGraph')"><span style="font-style: normal; font-weight: bold; font-size: 1em;"> 11st(%) </span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td width="500" height="300" colspan="2"><canvas id="canvas" width="500" height="300"></canvas></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-
-    </table>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
 </div>
+
 </body>
 <script type="text/javascript">
-        var barChartData = {
-            labels : ["Price","Delivery","Size","Extra"],
-            datasets : [
-                {
-                    fillColor : "rgba(0,0,255,0.85)",
-                    strokeColor : "rgba(0,0,255,0.75)",
-                    highlightFill: "rgba(0,0,255,0.5)",
-                    highlightStroke: "rgba(0,0,255,0.5)",
-                    data : [{{ product.pricePos }},{{ product.deliveryPos }},{{ product.sizePos }},{{ product.extraPos }}]
-                },
-                {
-                    fillColor : "rgba(255,0,0,0.85)",
-                    strokeColor : "rgba(255,0,0,0.75)",
-                    highlightFill : "rgba(255,0,0,0.5)",
-                    highlightStroke : "rgba(255,0,0,0.5)",
-                    data : [{{ product.priceNeg }},{{ product.deliveryNeg }},{{ product.sizeNeg }},{{ product.extraNeg }}]
-                }
-            ]
-
-        };
-
-        var pricePieChartData = [
+    var barChartData = {
+        labels : ["Price","Delivery","Size","Extra"],
+        datasets : [
             {
-                value: {{ product.pricePos}},
-                color: "rgba(0,0,255,0.85)",
-                highlight: "rgba(0,0,255,0.5)",
-                label: "Positive Count"
+                fillColor : "#33CCFF",
+                strokeColor : "#006699",
+                highlightFill: "#339999",
+                highlightStroke: "#339999",
+                data : [{{ product.pricePos }},{{ product.deliveryPos }},{{ product.sizePos }},{{ product.extraPos }}]
             },
             {
-                value: {{ product.priceNeg }},
-                color: "rgba(255,0,0,0.85)",
-                highlight: "rgba(255,0,0,0.5)",
-                label: "Negative Count"
-            }];
+                fillColor : "#FF9999",
+                strokeColor : "#CC3399",
+                highlightFill : "#CC9999",
+                highlightStroke : "#CC9999",
+                data : [{{ product.priceNeg }},{{ product.deliveryNeg }},{{ product.sizeNeg }},{{ product.extraNeg }}]
+            }
+        ]
 
-        var deliveryPieChartData = [
-            {
-                value: {{ product.deliveryPos }},
-                color: "rgba(0,0,255,0.85)",
-                highlight: "rgba(0,0,255,0.5)",
-                label: "Positive Count"
-            },
-            {
-                value: {{ product.deliveryNeg }},
-                color: "rgba(255,0,0,0.85)",
-                highlight: "rgba(255,0,0,0.5)",
-                label: "Negative Count"
-            }];
+    };
 
-        var sizePieChartData = [
-            {
-                value: {{ product.sizePos }},
-                color: "rgba(0,0,255,0.85)",
-                highlight: "rgba(0,0,255,0.5)",
-                label: "Positive Count"
-            },
-            {
-                value: {{ product.sizeNeg }},
-                color: "rgba(255,0,0,0.85)",
-                highlight: "rgba(255,0,0,0.5)",
-                label: "Negative Count"
-            }];
+    var pricePieChartData = [
+        {
+            value: {{ product.pricePos}},
+            color: "#33CCFF",
+            highlight: "#339999",
+            label: "Positive Count"
+        },
+        {
+            value: {{ product.priceNeg }},
+            color: "#FF9999",
+            highlight: "#CC9999",
+            label: "Negative Count"
+        }];
 
-        var extraPieChartData = [
-            {
-                value: {{ product.extraPos }},
-                color: "rgba(0,0,255,0.85)",
-                highlight: "rgba(0,0,255,0.5)",
-                label: "Positive Count"
-            },
-            {
-                value: {{ product.extraNeg }},
-                color: "rgba(255,0,0,0.85)",
-                highlight: "rgba(255,0,0,0.5)",
-                label: "Negative Count"
-            }];
+    var deliveryPieChartData = [
+        {
+            value: {{ product.deliveryPos }},
+            color: "#33CCFF",
+            highlight: "#339999",
+            label: "Positive Count"
+        },
+        {
+            value: {{ product.deliveryNeg }},
+            color: "#FF9999",
+            highlight: "#CC9999",
+            label: "Negative Count"
+        }];
 
-        var elevenStPieChartData = [
-            {
-                value: {{ product.Product_satisfaction_by11st }},
-                color: "rgba(0,0,255,0.85)",
-                highlight: "rgba(0,0,255,0.5)",
-                label: "Positive Percent(%)"
-            },
-            {
-                value: 100 - {{ product.Product_satisfaction_by11st }},
-                color: "rgba(255,0,0,0.85)",
-                highlight: "rgba(255,0,0,0.5)",
-                label: "Negative Percent(%)"
-            }];
+    var sizePieChartData = [
+        {
+            value: {{ product.sizePos }},
+            color: "#33CCFF",
+            highlight: "#339999",
+            label: "Positive Count"
+        },
+        {
+            value: {{ product.sizeNeg }},
+            color: "#FF9999",
+            highlight: "#CC9999",
+            label: "Negative Count"
+        }];
+
+    var extraPieChartData = [
+        {
+            value: {{ product.extraPos }},
+            color: "#33CCFF",
+            highlight: "#339999",
+            label: "Positive Count"
+        },
+        {
+            value: {{ product.extraNeg }},
+            color: "#FF9999",
+            highlight: "#CC9999",
+            label: "Negative Count"
+        }];
+
+    var elevenStPieChartData = [
+        {
+            value: {{ product.Product_satisfaction_by11st }},
+            color: "#33CCFF",
+            highlight: "#339999",
+            label: "Positive Percent(%)"
+        },
+        {
+            value: 100 - {{ product.Product_satisfaction_by11st }},
+            color: "#FF9999",
+            highlight: "#CC9999",
+            label: "Negative Percent(%)"
+        }];
 
 
-        var chart = null;
-        var canvas = null;
-        var ctx = null;
+    var chart = null;
+    var canvas = null;
+    var ctx = null;
 
 
-        $(document).ready(function() {
+    $(document).ready(function() {
+        canvas = document.getElementById('canvas');
+        ctx = canvas.getContext('2d');
+        chart = new Chart(ctx).Bar(barChartData);
+    });
+
+    function showGraph(id)
+    {
+        if(id == "barGraph") {
+            chart.destroy();
             canvas = document.getElementById('canvas');
             ctx = canvas.getContext('2d');
             chart = new Chart(ctx).Bar(barChartData);
-        });
-
-        function showGraph(id)
-        {
-            if(id == "barGraph") {
-                chart.destroy();
-                canvas = document.getElementById('canvas');
-                ctx = canvas.getContext('2d');
-                chart = new Chart(ctx).Bar(barChartData);
-            }
-            else if(id == "priceGraph"){
-                chart.destroy();
-                canvas = document.getElementById('canvas');
-                ctx = canvas.getContext('2d');
-                chart = new Chart(ctx).Pie(pricePieChartData);
-            }
-            else if(id == "deliveryGraph"){
-                chart.destroy();
-                canvas = document.getElementById('canvas');
-                ctx = canvas.getContext('2d');
-                chart = new Chart(ctx).Pie(deliveryPieChartData);
-            }
-            else if(id == "sizeGraph"){
-                chart.destroy();
-                canvas = document.getElementById('canvas');
-                ctx = canvas.getContext('2d');
-                chart = new Chart(ctx).Pie(sizePieChartData);
-            }
-            else if(id == "extraGraph") {
-                chart.destroy();
-                canvas = document.getElementById('canvas');
-                ctx = canvas.getContext('2d');
-                chart = new Chart(ctx).Pie(extraPieChartData);
-            }
-            else if(id == "11stGraph") {
-                chart.destroy();
-                canvas = document.getElementById('canvas');
-                ctx = canvas.getContext('2d');
-                chart = new Chart(ctx).Pie(elevenStPieChartData);
-            }
         }
-    </script>
+        else if(id == "priceGraph"){
+            chart.destroy();
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            chart = new Chart(ctx).Pie(pricePieChartData);
+        }
+        else if(id == "deliveryGraph"){
+            chart.destroy();
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            chart = new Chart(ctx).Pie(deliveryPieChartData);
+        }
+        else if(id == "sizeGraph"){
+            chart.destroy();
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            chart = new Chart(ctx).Pie(sizePieChartData);
+        }
+        else if(id == "extraGraph") {
+            chart.destroy();
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            chart = new Chart(ctx).Pie(extraPieChartData);
+        }
+        else if(id == "11stGraph") {
+            chart.destroy();
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            chart = new Chart(ctx).Pie(elevenStPieChartData);
+        }
+    }
+</script>
 </html>

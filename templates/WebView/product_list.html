@@ -29,171 +29,201 @@
 
 <body>
 
-    <!-- Navigation -->
-
-
-    <!-- Page Content -->
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-
-        <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">List for Recommendation
-                    <div style="text-align: center">
-                        <small>Priority</small>
-                        <input type="radio" name="category" id="Size" onclick="showGraph('Size')"><span style="font-style: normal; font-size: 0.5em;"> Size </span>
-                        <input type="radio" name="category" id="Delivery" onclick="showGraph('Delivery')"><span style="font-style: normal; font-size: 0.5em;"> Delivery </span>
-                        <input type="radio" name="category" id="Price" onclick="showGraph('Price')"><span style="font-style: normal; font-size: 0.5em;"> Price </span>
-                        <input type="radio" name="category" id="Extra" onclick="showGraph('Extra')"><span style="font-style: normal; font-size: 0.5em;"> Extra </span>
-                    </div>
-                </h1>
-
-            </div>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://52.78.128.31">Main Page</a>
         </div>
-        <!-- /.row -->
-
-        <!-- Project One -->
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#">
-                    <img class="img-responsive" src={{ products.0.image_file.url }} alt="">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <h2>추천 1 순위</h2>
-                <h4>Product Category : {{ products.0.title }}</h4>
-                <h4>Product Number : {{ products.0.pk }}</h4>
-                <h4>Product link : <a href={{ products.0.description }}> {{ products.0.description }} </a> </h4>
-                <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.0.pk }}">Analysis Result <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="http://52.78.128.31/search_keyword_product/?product_keyWord=바지">바지 추천</a>
+                </li>
+                <li>
+                    <a href="http://52.78.128.31/search_keyword_product/?product_keyWord=스커트">스커트 추천</a>
+                </li>
+                <li>
+                    <a href="http://52.78.128.31/search_keyword_product/?product_keyWord=티셔츠">티셔츠 추천</a>
+                </li>
+            </ul>
         </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Two -->
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#">
-                    <img class="img-responsive" src={{ products.1.image_file.url }} alt="">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <h2>추천 2 순위</h2>
-                <h4>Product Category : {{ products.1.title }}</h4>
-                <h4>Product Number : {{ products.1.pk }}</h4>
-                <h4>Product link : <a href={{ products.1.description }}> {{ products.0.description }} </a> </h4>
-                <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.1.pk }}">Analysis Result <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Three -->
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#">
-                    <img class="img-responsive" src={{ products.2.image_file.url }} alt="">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <h2>추천 3 순위</h2>
-                <h4>Product Category : {{ products.2.title }}</h4>
-                <h4>Product Number : {{ products.2.pk }}</h4>
-                <h4>Product link : <a href={{ products.2.description }}> {{ products.0.description }} </a> </h4>
-                <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.2.pk }}">Analysis Result <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Four -->
-        <div class="row">
-
-            <div class="col-md-4">
-                <a href="#">
-                    <img class="img-responsive" src={{ products.3.image_file.url }} alt="">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <h2>추천 4 순위</h2>
-                <h4>Product Category : {{ products.3.title }}</h4>
-                <h4>Product Number : {{ products.3.pk }}</h4>
-                <h4>Product link : <a href={{ products.3.description }}> {{ products.0.description }} </a> </h4>
-                <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.3.pk }}">Analysis Result <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Five -->
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#">
-                    <img class="img-responsive" src={{ products.4.image_file.url }} alt="">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <h2>추천 5 순위</h2>
-                <h4>Product Category : {{ products.4.title }}</h4>
-                <h4>Product Number : {{ products.4.pk }}</h4>
-                <h4>Product link : <a href={{ products.4.description }}> {{ products.0.description }} </a> </h4>
-                <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.4.pk }}">Analysis Result <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Pagination -->
-
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>AngelsWeb</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
+        <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
+</nav>
 
-    <!-- jQuery -->
-    <script src="{% static 'app/vendor/jquery/jquery.js' %}"></script>
+<p style="height: 10px"></p>
+<!-- Page Content -->
+<div class="container">
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-10">
+            <h1 class="page-header">List for Recommendation
+                <div style="text-align: right">
+                    <small>Priority</small>
+                    <input type="radio" name="category" id="Size" onclick="showGraph('Size')"><span style="font-style: normal; font-size: 0.5em;"> Size </span>
+                    <input type="radio" name="category" id="Delivery" onclick="showGraph('Delivery')"><span style="font-style: normal; font-size: 0.5em;"> Delivery </span>
+                    <input type="radio" name="category" id="Price" onclick="showGraph('Price')"><span style="font-style: normal; font-size: 0.5em;"> Price </span>
+                    <input type="radio" name="category" id="Extra" onclick="showGraph('Extra')"><span style="font-style: normal; font-size: 0.5em;"> Extra </span>
+                </div>
+            </h1>
+
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Project One -->
+    <div class="row">
+        <div class="col-md-4">
+            <a href="#">
+                <img class="img-responsive" src={{ products.0.image_file.url }} alt="">
+            </a>
+        </div>
+        <div class="col-md-7">
+            <h2>추천 1 순위</h2>
+            <h4>Product Category : {{ products.0.title }}</h4>
+            <h4>Product Number : {{ products.0.pk }}</h4>
+            <h4>Product link : <a href={{ products.0.description }}> {{ products.0.description }} </a> </h4>
+            <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.0.pk }}">Analysis Result <span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Project Two -->
+    <div class="row">
+        <div class="col-md-4">
+            <a href="#">
+                <img class="img-responsive" src={{ products.1.image_file.url }} alt="">
+            </a>
+        </div>
+        <div class="col-md-7">
+            <h2>추천 2 순위</h2>
+            <h4>Product Category : {{ products.1.title }}</h4>
+            <h4>Product Number : {{ products.1.pk }}</h4>
+            <h4>Product link : <a href={{ products.1.description }}> {{ products.0.description }} </a> </h4>
+            <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.1.pk }}">Analysis Result <span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Project Three -->
+    <div class="row">
+        <div class="col-md-4">
+            <a href="#">
+                <img class="img-responsive" src={{ products.2.image_file.url }} alt="">
+            </a>
+        </div>
+        <div class="col-md-7">
+            <h2>추천 3 순위</h2>
+            <h4>Product Category : {{ products.2.title }}</h4>
+            <h4>Product Number : {{ products.2.pk }}</h4>
+            <h4>Product link : <a href={{ products.2.description }}> {{ products.0.description }} </a> </h4>
+            <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.2.pk }}">Analysis Result <span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Project Four -->
+    <div class="row">
+
+        <div class="col-md-4">
+            <a href="#">
+                <img class="img-responsive" src={{ products.3.image_file.url }} alt="">
+            </a>
+        </div>
+        <div class="col-md-7">
+            <h2>추천 4 순위</h2>
+            <h4>Product Category : {{ products.3.title }}</h4>
+            <h4>Product Number : {{ products.3.pk }}</h4>
+            <h4>Product link : <a href={{ products.3.description }}> {{ products.0.description }} </a> </h4>
+            <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.3.pk }}">Analysis Result <span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Project Five -->
+    <div class="row">
+        <div class="col-md-4">
+            <a href="#">
+                <img class="img-responsive" src={{ products.4.image_file.url }} alt="">
+            </a>
+        </div>
+        <div class="col-md-7">
+            <h2>추천 5 순위</h2>
+            <h4>Product Category : {{ products.4.title }}</h4>
+            <h4>Product Number : {{ products.4.pk }}</h4>
+            <h4>Product link : <a href={{ products.4.description }}> {{ products.0.description }} </a> </h4>
+            <a class="btn btn-primary" href="http://52.78.128.31/search_product/?product_number={{ products.4.pk }}">Analysis Result <span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Pagination -->
+
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>AngelsWeb</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="{% static 'app/vendor/jquery/jquery.js' %}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
-    <script type="text/javascript">
+<script type="text/javascript">
 
-        $(document).ready(function() {
+    $(document).ready(function() {
 
-        });
+    });
 
-        function showGraph(id)
-        {
-            if(id == "Size") {
-                location.href = 'http://52.78.128.31/search_keyword_product/?product_keyWord={{ products.0.title }}'+ 'Size';
-            }
-            else if(id == "Delivery"){
-                location.href = 'http://52.78.128.31/search_keyword_product/?product_keyWord={{ products.0.title }}'+ 'Delivery';
-            }
-            else if(id == "Price"){
-                location.href = 'http://52.78.128.31/search_keyword_product/?product_keyWord={{ products.0.title }}'+ 'Price';
-            }
-            else if(id == "Extra"){
-                location.href = 'http://52.78.128.31/search_keyword_product/?product_keyWord={{ products.0.title }}'+ 'Extra';
-            }
+    function showGraph(id)
+    {
+        if(id == "Size") {
+            location.href = 'http://52.78.128.31/search_keyword_product/?product_keyWord={{ products.0.title }}'+ 'Size';
         }
-    </script>
+        else if(id == "Delivery"){
+            location.href = 'http://52.78.128.31/search_keyword_product/?product_keyWord={{ products.0.title }}'+ 'Delivery';
+        }
+        else if(id == "Price"){
+            location.href = 'http://52.78.128.31/search_keyword_product/?product_keyWord={{ products.0.title }}'+ 'Price';
+        }
+        else if(id == "Extra"){
+            location.href = 'http://52.78.128.31/search_keyword_product/?product_keyWord={{ products.0.title }}'+ 'Extra';
+        }
+    }
+</script>
 </html>
