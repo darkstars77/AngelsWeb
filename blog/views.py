@@ -94,10 +94,18 @@ def search_keyword_product(request):
             ordered = products.order_by('-extraPos')
             return render(request, 'WebView/product_list.html', {'products': ordered})
 
-        if word == "바지" or word == "티셔츠" or word == "스커트":
-            products = Product.objects.filter(title=request.GET['product_keyWord'])
+        if word == "바지" or word == "팬츠" or word == "pant" or word == "pants":
+            products = Product.objects.filter(title='바지')
             return render(request, 'WebView/product_list.html', {'products': products})
-        else:
-            return HttpResponse('해당 키워드의 검색 내용은 존재하지 않습니다')
+
+        if word == "티셔츠" or word == "셔츠" or word == "티" or word == "tshirt" or word == "tshirts":
+            products = Product.objects.filter(title='티셔츠')
+            return render(request, 'WebView/product_list.html', {'products': products})
+
+        if word == "스커트" or word == "치마" or word == "skirt" or word == "skirts":
+            products = Product.objects.filter(title='스커트')
+            return render(request, 'WebView/product_list.html', {'products': products})
+
+        return HttpResponse('해당 키워드의 검색 내용은 존재하지 않습니다')
     else:
         return HttpResponse('검색어를 입력하지 않으셨습니다.')
